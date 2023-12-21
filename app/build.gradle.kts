@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "uni.dev.supermessenger"
+    namespace = "com.example.chsbchatapp"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "uni.dev.supermessenger"
+        applicationId = "com.example.chsbchatapp"
         minSdk = 24
         targetSdk = 33
         versionCode = 1

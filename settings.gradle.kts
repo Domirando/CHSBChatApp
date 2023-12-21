@@ -13,5 +13,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Super"
+rootProject.name = "CHSBChatApp"
 include(":app")
