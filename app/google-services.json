@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "284778055440",
+    "firebase_url": "https://itchatapp-d71f1-default-rtdb.firebaseio.com",
+    "project_id": "itchatapp-d71f1",
+    "storage_bucket": "itchatapp-d71f1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284778055440:android:634bd1931dc6c1db4e4795",
+        "android_client_info": {
+          "package_name": "com.example.itchatapp"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmUtsmLltxDJ5GH4JhdFmk3KYWSmS6KMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:284778055440:android:f5e082da2a5b7d174e4795",
+        "android_client_info": {
+          "package_name": "uni.dev.supermessenger"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDmUtsmLltxDJ5GH4JhdFmk3KYWSmS6KMQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
