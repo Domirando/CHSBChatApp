@@ -84,8 +84,6 @@ fun ChatScreen(navController: NavController, key: String) {
     LocalContext.current
 
 
-    val deleteDialogOpen = remember { mutableStateOf(false) }
-    val deleteIndex = remember { mutableStateOf(-1) }
     val listState = rememberLazyListState()
     val coroutineScope = rememberCoroutineScope()
     val name = remember { mutableStateOf("") }
@@ -126,21 +124,11 @@ fun ChatScreen(navController: NavController, key: String) {
                 .fillMaxWidth()
         ) {
             items(messages.size) { index ->
-                MessageItem(messages[index], deleteDialogOpen, deleteIndex, index)
+                MessageItem(messages[index], index)
             }
         }
         if (gotUser.value) EnterMessage(user.value.key!!)
 
-    }
-    if (deleteDialogOpen.value) Alert(
-        isDialogOpen = deleteDialogOpen,
-        text = "Do you want to delete this message?",
-        confirmButtonColor = Red
-    ) {
-        if (deleteIndex.value > -1) {
-            Helper.deleteMessage(messages[deleteIndex.value])
-            deleteIndex.value = -1
-        }
     }
 
 
@@ -150,8 +138,6 @@ fun ChatScreen(navController: NavController, key: String) {
 @Composable
 fun MessageItem(
     message: Message,
-    deleteDialogOpen: MutableState<Boolean>,
-    deleteIndex: MutableState<Int>,
     index: Int
 ) {
     val currentUserKey = SharedHelper.getInstance(LocalContext.current).getKey()
@@ -165,12 +151,8 @@ fun MessageItem(
                     onClick = {
 
                     },
-                    onLongClick = {
-                        deleteDialogOpen.value = true
-                        deleteIndex.value = index
-                    }
                 ),
-            shape = RoundedCornerShape(24.dp),
+            shape = RoundedCornerShape(12.dp),
             colors = CardDefaults.cardColors(if (fromMe) Back2 else Back1)
         ) {
             Text(
@@ -276,16 +258,6 @@ fun ChatTopBar(user: MutableState<User>, name: MutableState<String>) {
             )
         }
         Box(modifier = Modifier.padding(6.dp)) {
-//            Icon(
-//                painter = painterResource(id = R.drawable.search),
-//                contentDescription = "Search button",
-//                tint = Text2,
-//                modifier = Modifier
-//                    .border(0.5.dp, Text2, RoundedCornerShape(50))
-//                    .clickable { /* TODO */ }
-//                    .padding(6.dp)
-//                    .clip(CircleShape),
-//            )
         }
     }
 }

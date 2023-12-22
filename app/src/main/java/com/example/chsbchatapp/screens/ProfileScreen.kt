@@ -59,6 +59,7 @@ import com.example.chsbchatapp.ui.theme.Red
 import com.example.chsbchatapp.ui.theme.Secondary
 import com.example.chsbchatapp.ui.theme.Text
 import com.example.chsbchatapp.ui.theme.Text2
+import com.example.chsbchatapp.ui.theme.Text3
 import com.example.chsbchatapp.util.Alert
 import com.example.chsbchatapp.util.Helper
 import com.example.chsbchatapp.util.SharedHelper
@@ -147,7 +148,7 @@ fun ProfileScreen(navController: NavController) {
             Spacer(modifier = Modifier.height(42.dp))
             Image(
                 painter = painterResource(id = R.drawable.logo),
-                contentDescription = "Super app logo",
+                contentDescription = "ChatApp app logo",
                 Modifier.height(100.dp)
             )
             Spacer(modifier = Modifier.height(42.dp))
@@ -389,11 +390,10 @@ fun ProfileScreen(navController: NavController) {
                     .build()
                 if (!dataFetched.value) Box(
                     modifier = Modifier
-                        .fillMaxSize().align(Alignment.Center)
+                        .fillMaxSize()
+                        .align(Alignment.Center)
                 ) {
-                    Image(
-                        painter = rememberAsyncImagePainter(R.drawable.progress, imageLoader),
-                        contentDescription = null,
+                    Text(text = "Loading...",
                         modifier = Modifier
                             .height(40.dp)
                             .align(Alignment.Center)
@@ -411,7 +411,7 @@ fun ProfileScreen(navController: NavController) {
                 },
                 shape = RoundedCornerShape(16.dp),
                 colors = ButtonDefaults.buttonColors(
-                    containerColor = Green, disabledContainerColor = Secondary
+                    containerColor = Green, disabledContainerColor = Text3
                 ),
                 modifier = Modifier
                     .fillMaxWidth()

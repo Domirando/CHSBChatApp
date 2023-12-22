@@ -57,17 +57,12 @@ import com.example.chsbchatapp.ui.theme.Primary
 import com.example.chsbchatapp.ui.theme.Secondary
 import com.example.chsbchatapp.ui.theme.Text
 import com.example.chsbchatapp.ui.theme.Text2
+import com.example.chsbchatapp.ui.theme.Text3
 import com.example.chsbchatapp.util.Alert
 import com.example.chsbchatapp.util.Helper
 import com.example.chsbchatapp.util.SharedHelper
 import java.text.SimpleDateFormat
 import java.util.Date
-
-@Preview
-@Composable
-fun PreviewHome() {
-    HomeScreen(navController = rememberNavController())
-}
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -96,7 +91,7 @@ fun HomeScreen(navController: NavController) {
     ) {
         HomeTopBar(navController)
         Box(Modifier.fillMaxSize()) {
-            ChatsColumn(navController, Secondary, contacts, lastMessages, "", true)
+            ChatsColumn(navController, Color.Transparent, contacts, lastMessages, "", true)
             if (explore.value) ExploreButton(navController = navController)
         }
     }
@@ -113,9 +108,7 @@ fun HomeScreen(navController: NavController) {
         modifier = Modifier
             .fillMaxSize()
     ) {
-        Image(
-            painter = rememberAsyncImagePainter(R.drawable.progress, imageLoader),
-            contentDescription = null,
+        Text(text = "Loading...",
             modifier = Modifier
                 .height(40.dp)
                 .align(Alignment.Center)
@@ -258,7 +251,7 @@ fun ChatItem(
                 }
             ),
         shape = RoundedCornerShape(24.dp),
-        colors = CardDefaults.cardColors(Color.Transparent)
+        colors = CardDefaults.cardColors(Color.White)
     ) {
         Row(Modifier.padding(8.dp, 8.dp)) {
             Image(
@@ -299,16 +292,6 @@ fun ChatItem(
                 verticalArrangement = Arrangement.SpaceEvenly
             ) {
                 Text(text = lastMessageDate, color = Text2, fontWeight = FontWeight.Light)
-//                            if (unreadCount > 0)
-//                                Text(
-//                                    text = unreadCount.toString(),
-//                                    color = Color.White,
-//                                    modifier = Modifier
-//                                        .size(20.dp)
-//                                        .background(color = Blue, shape = RoundedCornerShape(50)),
-//                                    textAlign = TextAlign.Center,
-//                                    fontWeight = FontWeight.Bold
-//                                )
 
             }
         }
@@ -353,7 +336,6 @@ fun HomeTopBar(navController: NavController) {
                 .clickable { navController.navigate("profile") }
         )
         val focus = true
-        Image(painter = painterResource(id = R.drawable.super_name), contentDescription = "")
         Box(modifier = Modifier.padding(2.dp)) {
             Icon(
                 painter = painterResource(id = R.drawable.search),

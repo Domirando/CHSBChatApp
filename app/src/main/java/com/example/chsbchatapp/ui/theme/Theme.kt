@@ -23,7 +23,7 @@ private val lightColorScheme = lightColorScheme(
 )
 
 @Composable
-fun SuperTheme(
+fun ChatApp(
     darkTheme: Boolean = isSystemInDarkTheme(),
     // Dynamic color is available on Android 12+
     dynamicColor: Boolean = true,

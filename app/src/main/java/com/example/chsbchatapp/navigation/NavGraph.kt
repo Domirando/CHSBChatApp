@@ -101,9 +101,6 @@ fun NavGraph() {
                     initialScale = 1.2f,
                     animationSpec = tween(300)
                 )
-//                fadeIn(
-//                    tween(timeFast)
-//                )
             },
             exitTransition = {
                 scaleOut(
